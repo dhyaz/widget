@@ -1,0 +1,107 @@
+<script src="https://kit.fontawesome.com/8dc1daa8d8.js" crossorigin="anonymous"></script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+  .main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-color: transaprent;
+  }
+
+  .box {
+    gap: 10px;
+    width: 200px;
+    height: 100px;
+    border: 22px;
+    padding: 10px 20px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    border-radius: 28px;
+    box-shadow: inset -4px 4px 6px black, -4px 4px 6px #090f16;
+  }
+
+  .box>span {
+    color: #d8e5ee;
+    font-size: 22px;
+    font-family: 'Black Han Sans', sans-serif;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    text-shadow: -4px 4px 6px black;
+  }
+
+  .box,
+  .fa-brands {
+    color: #d8e5ee;
+    font-size: 48px;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+    text-shadow: -4px 4px 6px black;
+  }
+</style>
+
+<div class="main">
+  <div class="box">
+    <i class="fa-brands fa-twitch"></i><span>@dhyaz</span>
+  </div>
+</div>
+
+<script>
+  let i = 0;
+  const icons = [{
+      class: "fa-brands fa-twitch",
+      text: "@dhyaz"
+    },
+    {
+      class: "fa-brands fa-tiktok",
+      text: "@thedhyaz"
+    },
+    {
+      class: "fa-brands fa-x-twitter",
+      text: "@thedhyaz"
+    },
+    {
+      class: "fa-brands fa-youtube",
+      text: "@dhyaz"
+    },
+    {
+      class: "fa-brands fa-facebook",
+      text: "@thedhyaz"
+    },
+    {
+      class: "fa-brands fa-whatsapp",
+      text: "@dhyaz"
+    },
+    {
+      class: "fa-brands fa-instagram",
+      text: "@thedhyaz"
+    },
+    {
+      class: "fa-brands fa-reddit",
+      text: "r/dhyaz"
+    },
+  ];
+
+  function updateIcon() {
+    const boxElement = document.querySelector(".box");
+    const iconElement = document.querySelector(".box i");
+    const textElement = document.querySelector(".box span");
+    // Desvanecer
+    iconElement.style.opacity = 0;
+    textElement.style.opacity = 0;
+    setTimeout(() => {
+      iconElement.className = icons[i].class;
+      textElement.textContent = icons[i].text;
+      iconElement.style.opacity = 2;
+      textElement.style.opacity = 2;
+      i = (i + 1) % icons.length;
+    }, 1000);
+  }
+  setInterval(updateIcon, 6000);
+</script>
